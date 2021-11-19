@@ -78,7 +78,8 @@ document.getElementById('open_door').addEventListener('click', async () => {
 	.then(server => server.getPrimaryService('d4712330-b5d6-40ad-9035-70d2798bc1dc'))
 	.then(async (service) => {
 		console.log('Before get challenge.');
-		challenge = await service.getCharacteristic('d4712332-b5d6-40ad-9035-70d2798bc1dc');
+		challenge = await service.getCharacteristic('d4712332-b5d6-40ad-9035-70d2798bc1dc');  // FUCKS UP (NO RSP, prpb psoc6 side)
+		console.log('get challenge:', value);
 		value = await challenge.readValue();
 		console.log('Challenge:', value);
 		console.log('Before get cred.');
